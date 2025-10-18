@@ -2,7 +2,6 @@
 模块1：秩检查与冗余约束移除
 """
 
-# module1_redundancy.py
 from typing import List, Tuple
 import numpy as np
 from scipy.linalg import qr

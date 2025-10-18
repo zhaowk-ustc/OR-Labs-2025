@@ -9,13 +9,11 @@ from .module2_bigm import init_with_big_m
 from .module3_simplex import iterate_simplex
 from .module4_postprocess import recover_solution
 
-# 引入异常类型
 from .exceptions import (
     InvalidInputError,
     InfeasibleError,
     UnboundedError,
     IterationLimitExceeded,
-    TimeLimitExceeded,
     NumericIssueError,
     PresolveError,
 )
@@ -31,15 +29,15 @@ def _fallback_solution(status: StatusType) -> LPSolution:
     )
 
 def solve(lp: LPProblem) -> LPSolution:
-    """求解线性规划问题（带异常捕获，保证返回 LPSolution）"""
+    """求解线性规划问题"""
     try:
         # 模块0：标准化
         std, xfm = to_standard_form(lp)
 
-        # 模块1：秩检查/冗余行删除（可能抛 Infeasible/NumericIssue）
+        # 模块1：秩检查/冗余行删除
         std = prune_redundant_rows(std)
 
-        # 模块2：大M初始化（可能抛 Presolve/NumericIssue）
+        # 模块2：大M初始化
         tab = init_with_big_m(std)
 
         # 模块3：单纯形迭代（最优→返回，其它抛异常）

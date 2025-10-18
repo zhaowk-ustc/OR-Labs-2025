@@ -69,7 +69,7 @@ class LPProblem:
         m_ub = 0 if self.A_ub is None else int(self.A_ub.shape[0])
         m_eq = 0 if self.A_eq is None else int(self.A_eq.shape[0])
         parts = [
-            f"<LPProblem: min c^T x | A_ub * x <= b ({m_ub} rows), A_eq * x = b_eq ({m_eq} rows) | n = {n}>",
+            f"<LPProblem: min c^T x | A_ub * x <= b_ub ({m_ub} rows), A_eq * x = b_eq ({m_eq} rows) | n = {n}>",
             _arr_str(self.c, "c: "),
             _arr_str(self.A_ub, "A_ub: "),
             _arr_str(self.b_ub, "b_ub: "),

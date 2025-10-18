@@ -3,7 +3,6 @@
 """
 from typing import List, Optional, Tuple
 import numpy as np
-from dataclasses import dataclass
 from .types import LPProblem, LPStandardForm, StandardFormTransform, BoundsType, Array
 from .utils import DEFAULT_TOLERANCE
 from .exceptions import InvalidInputError
@@ -152,7 +151,7 @@ def to_standard_form(
         col_ub = Aub[:, j] if Aub.size else np.zeros(0)
         cj     = c[j]
 
-        # 再次校验单变量的上下界关系（已在 normalize 中检查过；这里是防御式）
+        # 再次校验单变量的上下界关系
         if np.isfinite(lb[j]) and np.isfinite(ub[j]) and lb[j] > ub[j] + tol:
             raise InvalidInputError("变量上下界冲突", context={"col": j, "lb": float(lb[j]), "ub": float(ub[j])})
 

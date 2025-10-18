@@ -31,7 +31,7 @@ def _auto_big_m(c: np.ndarray) -> float:
     scale_val = float(scale) if np.isfinite(scale) else 1.0
     return float(1e6 * (1.0 + scale_val))
 
-# ----------------- 核心：大 M 初始化 -----------------
+# ----------------- 大 M 初始化 -----------------
 
 def init_with_big_m(
     std: LPStandardForm,
