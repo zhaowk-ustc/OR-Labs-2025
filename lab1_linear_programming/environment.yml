@@ -1,0 +1,13 @@
+name: or25_lab1
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - tqdm
+  - pytest
+  - pip
