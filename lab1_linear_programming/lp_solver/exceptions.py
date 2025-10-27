@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 class LPException(Exception):
-    """LP 求解过程中可预期的异常基类（简化版）。"""
+    """LP 求解过程中可预期的异常基类"""
     def __init__(self, message: str = "", *, context: Optional[Context] = None):
         super().__init__(message)
         self.message = message

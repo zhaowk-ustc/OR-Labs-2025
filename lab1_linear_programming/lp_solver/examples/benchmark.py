@@ -16,15 +16,11 @@ import time
 import numpy as np
 from typing import Dict, Any, List
 
-# 尝试导入依赖，如果失败则给出提示
-try:
-    from tqdm import tqdm
-    import pandas as pd
-    import matplotlib.pyplot as plt
-    import seaborn as sns
-except ImportError as e:
-    print(f"Import Error: {e}. Please install required packages: 'pip install tqdm pandas matplotlib seaborn'")
-    exit()
+from tqdm import tqdm
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 from lp_solver.types import LPProblem
 from lp_solver.module0_standardize import to_standard_form
