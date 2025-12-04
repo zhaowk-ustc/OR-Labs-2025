@@ -6,7 +6,7 @@
 
 ```powershell
 conda env create -f environment.yml
-conda activate or25_lab1
+conda activate or25
 ```
 
 ## 最小示例
